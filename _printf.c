@@ -58,6 +58,13 @@ int _printf(const char *format, ...)
 				{
 					x = va_arg(args, int);
 					len = format_d(x);
+					break;
+				}
+				case 'b':
+				{
+					x = va_arg(args, int);
+					len = format_b(x);
+					break;
 				}
 				default: {
 					break;
