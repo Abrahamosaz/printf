@@ -32,7 +32,7 @@ int format_d(int n)
 		std_o[j] = (n % 10) + 48;
 		n /= 10;
 		j--;
-	} while (j >= 0 && n != 0);
+	} while (n != 0);
 
 	j = 0;
 	while (j < len)
