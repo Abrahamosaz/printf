@@ -19,12 +19,10 @@ int format_b(int n)
 
 	var = n;
 	len = 0;
-	do
-	{
+	do {
 		n = (n / 2);
 		len++;
-	}
-	while (n > 0);
+	} while (n > 0);
 
 	bin_o = malloc(sizeof(char) * len);
 	i = len - 1;
