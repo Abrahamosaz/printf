@@ -32,22 +32,32 @@ int _printf(const char *format, ...)
 			}
 		} else
 		{
+			if (*format == '%')
+				len = format_c('%');
 			switch (*format)
 			{
-				case 'c': {
+				case 'c':
+				{
 					x = va_arg(args, int);
 					len = format_c(x);
 					break;
 				}
-				case 's': {
+				case 's':
+				{
 					s = va_arg(args, char *);
 					len = format_s(s);
 					break;
 				}
-				case 'd': {
+				case 'd':
+			 	{
 					x = va_arg(args, int);
 					len = format_d(x);
 					break;
+				}
+				case 'i':
+				{
+					x = va_arg(args, int);
+					len = format_d(x);
 				}
 				default: {
 					break;
