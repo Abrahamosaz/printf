@@ -9,7 +9,7 @@
  */
 int check_f(const char *format)
 {
-	const char *spec = "dicuxXosS";
+	const char *spec = "bdicuxXos";
 	int i = 0;
 
 	while (spec[i] != '\0')
