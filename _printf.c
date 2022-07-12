@@ -66,6 +66,12 @@ int _printf(const char *format, ...)
 					len = format_b(x);
 					break;
 				}
+				case 'u':
+				{
+					x = va_arg(args, int);
+					len = format_u(x);
+					break;
+				}
 				default: {
 					break;
 				}

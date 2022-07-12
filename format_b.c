@@ -6,23 +6,18 @@
  * @n: integer parameter
  * Return: length of binary number
  */
-int format_b(int n)
+int format_b(unsigned int n)
 {
 	int i, len, var;
 	float div, tmp = (n / 1);
 	char *bin_o;
-
-	if (n < 0)
-	{
-		n = -(n);
-	}
 
 	var = n;
 	len = 0;
 	do {
 		n = (n / 2);
 		len++;
-	} while (n > 0);
+	} while (n != 0);
 
 	bin_o = malloc(sizeof(char) * len);
 	i = len - 1;
@@ -34,15 +29,18 @@ int format_b(int n)
 		if (div == 0.0)
 		{
 			bin_o[i] = 48;
-			format_c(bin_o[i]);
 		}
 		else
 		{
 			tmp = (tmp - 0.5);
 			bin_o[i] = 49;
-			format_c(bin_o[i]);
 		}
 		i--;
+	}
+	while (i < len)
+	{
+		format_c(bin_o[i]);
+		i++;
 	}
 	free(bin_o);
 	return (len);
