@@ -1,6 +1,37 @@
 #include "main.h"
 #include <stdarg.h>
 #include <stddef.h>
+#include <unistd.h>
+/**
+ * check_f - check the format value if its part of the specifiers
+ * @format: format passed to the function
+ * Return: return (0 if True) 1 otherwise
+ */
+int check_f(const char *format)
+{
+	const char *spec = "dicuxXosS";
+	int i = 0;
+
+	while (spec[i] != '\0')
+	{
+		if (*format == spec[i])
+			return (0);
+		i++;
+	}
+	return (1);
+}
+/**
+ * _putchar - print out the character value
+ * @format: format passed to the function
+ * Return: return 1
+ */
+int _putchar(const char *format)
+{
+	char c = *format;
+
+	write(1, &c, 1);
+	return (1);
+}
 /**
  * _printf - printf  function that print to standard output
  * @format: The string format specifier
@@ -32,8 +63,8 @@ int _printf(const char *format, ...)
 			}
 		} else
 		{
-			if (*format == '%')
-				len = format_c('%');
+			if (check_f(format))
+				len = _putchar(format);
 			switch (*format)
 			{
 				case 'c':
@@ -72,7 +103,8 @@ int _printf(const char *format, ...)
 					len = format_u(x);
 					break;
 				}
-				default: {
+				default:
+				{
 					break;
 				}
 			}
