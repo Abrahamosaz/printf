@@ -9,7 +9,7 @@
  */
 int check_f(const char *format)
 {
-	const char *spec = "bdicuxXos";
+	const char *spec = "rbdicuxXos";
 	int i = 0;
 
 	while (spec[i] != '\0')
@@ -107,6 +107,12 @@ int _printf(const char *format, ...)
 				{
 					x = va_arg(args, int);
 					len = format_o(x);
+					break;
+				}
+				case 'r':
+				{
+					s = va_arg(args, char *);
+					len = rev_string(s);
 					break;
 				}
 				default:
