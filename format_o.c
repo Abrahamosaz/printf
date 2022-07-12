@@ -2,29 +2,30 @@
 #include <stdlib.h>
 #include "main.h"
 /**
- * format_b - converts unsigned int to binary
+ * format_o - converts unsigned int to octal
  * @n: integer parameter
  * Return: output length
  */
-int format_b(unsigned int n)
+int format_o(unsigned int n)
 {
-	int bin, rem, pval, var, len;
+	int pval, rem, oct, len, var;
 
 	pval = 1;
-	bin = 0;
+	oct = 0;
 	while (n)
 	{
-		rem = n % 2;
-		n /= 2;
-		bin += (rem * pval);
+		rem = n % 8;
+		oct += (rem * pval);
+		n /= 8;
 		pval *= 10;
 	}
-	format_d(bin);
-	var = bin;
+
+	var = oct;
 	len = 0;
 	do {
 		var /= 10;
 		len++;
 	} while (var != 0);
+	format_d(oct);
 	return (len);
 }
