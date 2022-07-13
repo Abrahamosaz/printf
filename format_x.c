@@ -20,6 +20,8 @@ int format_x(unsigned int n, unsigned int c)
 	}
 	len = count;
 	std_o = malloc(sizeof(char) * len);
+	if (std_o == NULL)
+		return (0);
 	j = count - 1;
 	do {
 		rem = n % 16;
@@ -30,9 +32,7 @@ int format_x(unsigned int n, unsigned int c)
 			else
 				std_o[j] = (rem + 87);
 		} else
-		{
 			std_o[j] = (rem + 48);
-		}
 		n /= 16;
 		j--;
 	} while (n != 0);
