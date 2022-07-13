@@ -109,7 +109,6 @@ int _printf(const char *format, ...)
 					len = format_o(x);
 					break;
 				}
-<<<<<<< HEAD
 				case 'X':
 				{
 					x = va_arg(args, int);
@@ -120,12 +119,12 @@ int _printf(const char *format, ...)
 				{
 					x = va_arg(args, int);
 					len = format_x(x);
-=======
+					break;
+				}
 				case 'r':
 				{
 					s = va_arg(args, char *);
 					len = rev_string(s);
->>>>>>> 0658193c1a420bef7186f7c2c6370bc4f772fd34
 					break;
 				}
 				default:
