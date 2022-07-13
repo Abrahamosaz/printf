@@ -128,7 +128,6 @@ int _printf(const char *format, ...)
 {
 	va_list args;
 	size_t x, state, count, len;
-	char *s;
 
 	va_start(args, format);
 	state = count = len = 0;
