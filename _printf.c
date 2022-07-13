@@ -109,6 +109,18 @@ int _printf(const char *format, ...)
 					len = format_o(x);
 					break;
 				}
+				case 'X':
+				{
+					x = va_arg(args, int);
+					len = format_X(x);
+					break;
+				}
+				case 'x':
+				{
+					x = va_arg(args, int);
+					len = format_x(x);
+					break;
+				}
 				default:
 				{
 					break;
