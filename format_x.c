@@ -6,7 +6,7 @@
  * @n: integer parameter
  * Return: number length
  */
-int format_x(unsigned int n)
+int format_x(unsigned int n, unsigned int c)
 {
 	size_t j, len, var, count, rem;
 	char *std_o;
@@ -25,7 +25,10 @@ int format_x(unsigned int n)
 		rem = n % 16;
 		if (rem > 9)
 		{
-			std_o[j] = (rem + 87);
+			if (c == 1)
+				std_o[j] = (rem + 55);
+			else
+				std_o[j] = (rem + 87);
 		} else
 		{
 			std_o[j] = (rem + 48);

@@ -112,13 +112,13 @@ int _printf(const char *format, ...)
 				case 'X':
 				{
 					x = va_arg(args, int);
-					len = format_X(x);
+					len = format_x(x, 1);
 					break;
 				}
 				case 'x':
 				{
 					x = va_arg(args, int);
-					len = format_x(x);
+					len = format_x(x, 0);
 					break;
 				}
 				case 'r':
