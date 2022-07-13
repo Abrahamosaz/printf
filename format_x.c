@@ -2,40 +2,40 @@
 #include <stddef.h>
 #include <stdlib.h>
 /**
- * format_d - prints integers
+ * format_x - prints unsigned hexadecimal
  * @n: integer parameter
  * Return: number length
  */
-int format_d(int n)
+int format_x(unsigned int n, unsigned int c)
 {
-	size_t j, len, var, count;
+	size_t j, len, var, count, rem;
 	char *std_o;
-
-	if (n < 0)
-	{
-		format_c('-');
-		n = -(n);
-	}
 
 	var = n;
 	count = 0;
-	do {
-		var /= 10;
+	while (var)
+	{
+		var /= 16;
 		count++;
-	} while (var != 0);
-
+	}
 	len = count;
-
 	std_o = malloc(sizeof(char) * len);
 	if (std_o == NULL)
 		return (0);
 	j = count - 1;
 	do {
-		std_o[j] = (n % 10) + 48;
-		n /= 10;
+		rem = n % 16;
+		if (rem > 9)
+		{
+			if (c == 1)
+				std_o[j] = (rem + 55);
+			else
+				std_o[j] = (rem + 87);
+		} else
+			std_o[j] = (rem + 48);
+		n /= 16;
 		j--;
 	} while (n != 0);
-
 	j = 0;
 	while (j < len)
 	{

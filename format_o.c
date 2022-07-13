@@ -1,5 +1,4 @@
 #include <stddef.h>
-#include <stdio.h>
 #include <stdlib.h>
 #include "main.h"
 /**
@@ -20,8 +19,7 @@ int format_o(unsigned int n)
 		n = n / 8;
 		pval = pval * 10;
 	}
-	printf("\n%d\n", oct);
-	format_u(oct);
+	format_d(oct);
 
 	var = oct;
 	len = 0;

@@ -21,6 +21,8 @@ int format_u(unsigned int n)
 	len = count;
 
 	std_o = malloc(sizeof(char) * len);
+	if (std_o == NULL)
+		return (0);
 	j = count - 1;
 	do {
 		std_o[j] = (n % 10) + 48;
