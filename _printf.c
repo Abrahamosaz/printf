@@ -44,7 +44,7 @@ int _putchar(const char *format)
 int _printf(const char *format, ...)
 {
 	va_list args;
-	size_t x, state, count, len;
+	size_t x, state, count, len, f;
 	char *s;
 
 	va_start(args, format);
@@ -64,7 +64,10 @@ int _printf(const char *format, ...)
 		} else
 		{
 			if (check_f(format))
+			{
+				f = format_c('%');
 				len = _putchar(format);
+			}
 			switch (*format)
 			{
 				case 'c':
@@ -132,7 +135,7 @@ int _printf(const char *format, ...)
 					break;
 				}
 			}
-			count += len;
+			count = count + f + len;
 			state = 0;
 		}
 		format++;
