@@ -8,7 +8,7 @@
  */
 int format_b(unsigned int n)
 {
-	int bin, rem, pval, var, len;
+	long int bin, rem, pval, var, len;
 
 	pval = 1;
 	bin = 0;

@@ -19,7 +19,7 @@ int format_u(unsigned int n)
 	} while (var != 0);
 
 	len = count;
-	
+
 	std_o = malloc(sizeof(char) * len);
 	j = count - 1;
 	do {
